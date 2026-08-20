@@ -1,0 +1,75 @@
+{
+  "Description": "Declarative cleanup targets for Clean-Unnecessary.ps1. Paths under Toolkit are relative to the installer folder. Paths under BasePath are relative to the install root (e.g. C:\\KnowledgeDiscovery\\26.2). Services are Windows service names to stop and delete.",
+  "BasePath": "C:\\KnowledgeDiscovery\\26.2",
+
+  "ToolkitFolders": [
+    "ssl",
+    "SSL",
+    ".pytest_cache"
+  ],
+
+  "ToolkitFiles": [
+    "ssl-passwords.txt",
+    "env/.idol-ssl-passwords.env",
+    "env/.idol-ssl-passwords.ps1"
+  ],
+
+  "ToolkitGlobs": [
+    "**/__pycache__",
+    "**/*.pyc",
+    "**/*.pyo",
+    "**/Thumbs.db",
+    "**/desktop.ini",
+    "**/.DS_Store",
+    "*.log"
+  ],
+
+  "BasePathFolders": [
+    "logs",
+    "temp",
+    "tmp",
+    "_extract",
+    ".tmp",
+    "ssl",
+    "SSL"
+  ],
+
+  "BasePathFiles": [
+    "kd-state.json",
+    "kd-install-state.json"
+  ],
+
+  "BasePathGlobs": [
+    "kd-state*.json",
+    "kd-install-state*.json",
+    "*.log"
+  ],
+
+  "WindowsServices": [
+    "KD-LicenseServer",
+    "KD-Content",
+    "KD-Community",
+    "KD-Agentstore",
+    "KD-QMSAgentStore",
+    "KD-AnswerBankAgentStore",
+    "KD-ConversationAgentStore",
+    "KD-Category",
+    "KD-QMS",
+    "KD-AnswerServer",
+    "KD-StatsServer",
+    "KD-View",
+    "KD-NiFi",
+    "KD-Find",
+    "KD-Apache-NiFi",
+    "ApacheNifiService"
+  ],
+
+  "Options": {
+    "StopServicesBeforeDelete": true,
+    "DeleteToolkitTargets": true,
+    "DeleteBasePathTargets": true,
+    "DeleteWindowsServices": false,
+    "DeleteEntireBasePath": false,
+    "ServiceStopTimeoutSeconds": 45
+  }
+}
